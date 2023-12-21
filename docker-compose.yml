@@ -6,15 +6,16 @@ services:
     image: mysql
     ports:
       - "3306:3306"
-    Enviremate: 
+    environment:
       MYSQL_DATABASE: mysql
       MYSQL_ROOT_PASSWORD: root
-  webapps: 
+
+  webapps:
     container_name: springbootapp
-    build: 
+    build:
       context: ./
       dockerfile: Dockerfile
     ports:
       - 8080:8080
-    depends_on: 
-      - mysqldb            
+    depends_on:
+      - mysqldb
